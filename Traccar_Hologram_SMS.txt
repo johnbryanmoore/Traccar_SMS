@@ -1,7 +1,9 @@
-# Traccar Hologram SMS
-This document explains how to configure Traccar to send commands via SMS using a Hologram SIM. 
+# Traccar Hologram SMS 
+# Copyright John Bryan Moore 2025
+#
+This document explains how to configure Traccar to send commands via SMS using the Hologram REST API. 
 
-1) Obtain your Hologram account API Key in the user interface unders "Settings->API"
+1) Obtain your Hologram account API Key in the Hologram web interface under "Settings->API"
 2) base64 encode the API key as apikey:your_api_key . On Linux or in git bash on Windows, this can be done using the base64 command.
 3) Edit /opt/traccar/conf/traccar.xml and add the following before the </properties>:
    
@@ -15,7 +17,7 @@ This document explains how to configure Traccar to send commands via SMS using a
     }
     </entry>
 4) Save traccar.xml and restart traccar (systemctl restart traccar)
-5) Obtain the deviceid for the device you want to send SMS messages to. This can be found within the Hologram Web Interface by selecting the SIM menu. Then select the SIM in question and scroll down until you find the "Device ID". This is not the IMEI nor the ICCID.
+5) Obtain the deviceid for the device you want to send SMS messages to. This can be found within the Hologram Web Interface by selecting the SIM menu. Then select the SIM in question and scroll down until you find the "Device ID". This is not the same as the IMEI nor the ICCID.
 6) In the traccar web interface, select the same device and edit its configuration. Set the Phone number to the "Device ID" value obtained above.
 
 Now when selecting to send a command to a device, an option of "Send SMS" will be presented. 
